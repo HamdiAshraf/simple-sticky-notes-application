@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="card text-bg-light mb-3" style="width: 100%; margin: 0 auto;">
+    <div
+      class="card-header text-center"
+      style="font-size: 20px; font-weight: bold;"
+    >Notes</div>
+    <div class="card-body">
+      {{#each list}}
+        <div class="card" style="text-align: left;padding:15px;">
+
+          <p>id: {{this._id}}</p>
+          <p>title: {{this.title}}</p>
+          <p>description: {{this.description}}</p>
+          <div class="row">
+            <!-- First Button to Redirect to /update -->
+            <div class="col-auto">
+              <a href="/update?id={{this._id}}" class="btn btn-primary">Update
+                Note</a>
+            </div>
+
+            <!-- Second Button to Redirect to /delete -->
+            <div class="col-auto">
+              <form
+                action="/delete/{{this._id}}"
+                method="POST"
+                style="display: inline;"
+              >
+                <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" class="btn btn-danger">Delete Note</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <br />
+      {{/each}}
+      <br />
+      {{!-- <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">Get All Notes</button>
+      </div> --}}
+    </div>
+  </div>
+</div>

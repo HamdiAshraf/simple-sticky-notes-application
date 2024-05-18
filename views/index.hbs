@@ -1,0 +1,50 @@
+<div class="content">
+  <form action="/addNote" method="post">
+    <div class="card text-bg-light mb-3" style="width: 100%; margin: 0 auto;">
+      <div
+        class="card-header text-center"
+        style="font-size: 20px; font-weight: bold;"
+      >Notes</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label
+            for="title"
+            class="form-label"
+            style="text-align: left; display: block;"
+          >Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Enter Title..."
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            for="description"
+            class="form-label"
+            style="text-align: left; display: block;"
+          >Note Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="3"
+            placeholder="Enter description..."
+          ></textarea>
+        </div>
+        {{#if errors}}
+          <ul style="color: red;text-align: left;">
+            {{#each errors}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-primary" type="submit">Add Note</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
